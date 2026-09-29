@@ -1,0 +1,91 @@
+{
+  "info": {
+    "name": "API ChatGPT + Perplexity",
+    "description": "Collection de endpoints para integração com ChatGPT e Perplexity",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "ChatGPT",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"Explique o que é inteligência artificial\",\n  \"model\": \"gpt-3.5-turbo\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/chatgpt",
+          "host": ["{{base_url}}"],
+          "path": ["api", "chatgpt"]
+        }
+      }
+    },
+    {
+      "name": "Perplexity",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"Qual é a capital da França?\",\n  \"model\": \"pplx-7b-chat\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/perplexity",
+          "host": ["{{base_url}}"],
+          "path": ["api", "perplexity"]
+        }
+      }
+    },
+    {
+      "name": "Combinado",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"message\": \"Explique machine learning em uma frase\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/combine",
+          "host": ["{{base_url}}"],
+          "path": ["api", "combine"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
